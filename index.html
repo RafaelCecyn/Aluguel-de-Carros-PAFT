@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body>
+    <h1>User:</h1>
+    <ul></ul>
+
+    <script>
+        // const url = `https://api.api-ninjas.com/v1/cars?limit=2&model=mustang`  
+        const url = `https://api.api-ninjas.com/v1/cars?model=mustang`  
+        fetch(url, {
+            method: "GET",
+            headers: { 'X-Api-Key': 'PklZm6jrIg8iWpS/S4ubfg==50uHGT4lWQnK92Lo'},
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+           data.forEach(user => {
+            const markup = `<li>${user.fuel_type}</li>`;
+
+            document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+            
+           });
+        }) 
+        .catch(error => console)
+    </script>
+</body>
+</html>
